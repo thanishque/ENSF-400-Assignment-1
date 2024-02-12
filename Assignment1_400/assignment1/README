@@ -1,0 +1,31 @@
+Assignment 1
+This project demonstrates the creation of a Docker container for running a Python application that generates random text data.
+
+
+text_gen.py
+The text_gen.py script is a Python application that generates random text data. It performs the following tasks:
+
+Checks if the file /serverdata/random.txt exists.
+If the file exists, it reads and prints the existing content.
+Generates 100 random characters of text data.
+Writes the new data to the file /serverdata/random.txt.
+Prints the new data.
+Dockerfile
+The Dockerfile is used to build the Docker image for running the Python application. It performs the following steps:
+
+Uses a Python base image.
+Sets the working directory to /app.
+Creates the directory /serverdata inside the container.
+Copies the text_gen.py script into the container.
+Sets the command to execute the text_gen.py script when the container starts.
+Usage
+Build the Docker Image:
+
+Terminal
+docker build -t assignment1 .
+This command builds a Docker image with the tag assignment1 using the Dockerfile in the current directory (.). Make sure to run this command from the directory where your Dockerfile is located.
+
+Run the Docker Container:
+
+Terminal
+docker run -it -v servervol:/serverdata assignment1
